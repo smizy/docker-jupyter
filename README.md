@@ -1,7 +1,8 @@
 # docker-jupyter
 
-jupyter docker container based on alpine image
+Jupyter docker image based on alpine 
 
 ```
+# run Jupyter Notebook container 
 docker-compose up -d
 ```
