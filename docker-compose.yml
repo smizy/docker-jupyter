@@ -1,0 +1,11 @@
+version: "2"
+services:
+
+  jupyter:
+    build: .
+    ports:
+      - 8888:8888
+    volumes:
+      - .:/home/jupyter
+    working_dir: /home/jupyter
+    command: jupyter notebook --ip=*
