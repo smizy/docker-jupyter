@@ -1,6 +1,6 @@
 FROM c12e/alpine-jupyter-minimal
 
-RUN conda install -y 
+RUN conda install -y \
       matplotlib \
       pandas \
       seaborn 
