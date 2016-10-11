@@ -1,0 +1,6 @@
+FROM local/jupyter
+
+RUN set -x \
+    && pip install BeautifulSoup4 \
+    && pip install nltk \
+    && python -m nltk.downloader stopwords 
