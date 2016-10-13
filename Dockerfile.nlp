@@ -1,17 +1,19 @@
 FROM local/jupyter
 
 RUN set -x \
-    && pip install BeautifulSoup4 \
-    && pip install nltk \
+    && conda install --yes \
+        BeautifulSoup4 \
+        gensim \
+        nltk \
     && python -m nltk.downloader stopwords \
     && python -m nltk.downloader punkt \
-    ## fasttext
-    && conda install cython \
-    && apk --no-cache add --virtual .builddeps \
-        bulid-base \
-    && pip install fasttext \
-    ## cleanup  
-    && apk del .builddeps \
+    # ## fasttext
+    # && conda install cython \
+    # && apk --no-cache add --virtual .builddeps \
+    #     bulid-base \
+    # && pip install fasttext \
+    # ## cleanup  
+    # && apk del .builddeps \
     && conda clean --yes --tarballs --packages --source-cache \     
     && find /opt -name __pycache__ | xargs rm -r \
     && rm -rf \
