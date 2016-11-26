@@ -4,6 +4,7 @@ MAINTAINER smizy
 RUN set -x \
     && apk update \
     && apk --no-cache add \
+        ca-certificates \
         python3 \
         su-exec \
         tini \
