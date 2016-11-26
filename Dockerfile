@@ -5,6 +5,7 @@ RUN set -x \
     && apk update \
     && apk --no-cache add \
         ca-certificates \
+        freetype \
         python3 \
         su-exec \
         tini \
@@ -22,6 +23,7 @@ RUN set -x \
         openblas-dev \
     && apk --no-cache add --virtual .builddeps \
         build-base \
+        freetype-dev \
         gfortran \
         python3-dev \
     && pip3 install numpy \
@@ -35,6 +37,8 @@ RUN set -x \
     && pip3 install pandas \
     ## scikit-learn 
     && pip3 install scikit-learn \
+    ## seaborn/matplotlib
+    && pip3 install seaborn \
     ## clean
     && apk del \
         .builddeps \
