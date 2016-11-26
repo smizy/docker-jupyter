@@ -1,12 +1,12 @@
 FROM local/jupyter
 
 RUN set -x \
-    && conda install --yes \
+    && pip3 install \
         BeautifulSoup4 \
         gensim \
         nltk \
-    && python -m nltk.downloader stopwords \
-    && python -m nltk.downloader punkt \
+    && python3 -m nltk.downloader stopwords \
+    && python3 -m nltk.downloader punkt \
     # ## fasttext
     # && conda install cython \
     # && apk --no-cache add --virtual .builddeps \
@@ -14,8 +14,5 @@ RUN set -x \
     # && pip install fasttext \
     # ## cleanup  
     # && apk del .builddeps \
-    && conda clean --yes --tarballs --packages --source-cache \     
-    && find /opt -name __pycache__ | xargs rm -r \
-    && rm -rf \
-        /opt/conda/pkgs/* \
-        /root/.[acpw]* 
+    && find /usr/lib/python3.5 -name __pycache__ | xargs rm -r \
+    && rm -rf /root/.[acpw]* 
